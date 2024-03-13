@@ -10,7 +10,11 @@ public class ArrayExample {
 //		obj.method1();
 //		obj.method2();
 //		obj.method3();
-		obj.method4();
+//		obj.method4();
+//		obj.method5();
+//		obj.method6();
+//		obj.method7();
+		obj.method8();
 	}
 	
 	public void method1() {
@@ -61,6 +65,95 @@ public class ArrayExample {
 			sum+=arr[i];
 		}
 		System.out.println("총합 : "+sum);
-		System.out.println("평균 : "+sum/3);
+		System.out.println("평균 : "+(double)sum/3);
+	}
+
+	public void method5() {
+		int a = 10;
+		int b = 7;
+		// a 값과 b값 바꾸기
+		int temp = a;
+		a = b;
+		b = temp;
+	}
+
+	public void method6() {
+		int[] score = {75,80,62,90,85};
+		int max = score[0];
+		for(int i=0; i<score.length;i++) {
+			if(max<score[i]) {
+				max = score[i];
+			}
+		}
+		System.out.println("최대값은 : "+max);
+		
+		int min = score[0];
+		for(int i=0; i<score.length;i++) {
+			if(min > score[i]) {
+				min = score[i];
+			}
+		}
+		System.out.println("최소값은 : "+min);
+	}
+	
+	public void method7() {
+		// 버블 정렬
+		// 원본자료가 n개일 때 n-1차 운행한다
+		// 각 회차에서 인접한 두 값을 비교하여 오름차순인 경우
+		// 작은값을 앞에 위치시킴
+		int[] score = {75, 80, 62, 90, 85};
+		for(int i =0; i<score.length-1;i++) {
+			for(int j=0; j<score.length-1;j++) {
+				if(score[j]>score[j+1]) { //부등호를 바꾸면 ASC DESC
+					int temp = score[j];
+					score[j]= score[j+1];
+					score[j+1]=temp;
+				}
+			}
+		}
+		for(int i=0;i<score.length;i++) {
+			System.out.print(score[i]+"\t");
+		}
+	}
+
+	public void method8() {
+		// 버블 정렬
+		// 원본자료가 n개일 때 n-1차 운행한다
+		// 각 회차에서 인접한 두 값을 비교하여 오름차순인 경우
+		// 작은값을 앞에 위치시킴
+		int[] score = {75, 80, 62, 90, 85};
+		for(int i =0; i<score.length-1;i++) {
+			boolean flag = true;
+			for(int j=0; j<score.length-1;j++) {
+				if(score[j]>score[j+1]) { //부등호를 바꾸면 ASC DESC
+					int temp = score[j];
+					score[j]= score[j+1];
+					score[j+1]=temp;
+					flag = false;
+				}
+			}
+			if(flag) break;
+		}
+		for(int i=0;i<score.length;i++) {
+			System.out.print(score[i]+"\t");
+		}
+	}
+		
+	public void method9() {
+		//버블 정렬
+		int[] score = {75, 80, 62, 90, 85};
+		for(int i=0; i<score.length-1;i++) {
+			for(int j=0; j<score.length-1;j++) {
+				if(score[j]>score[j+1]) {
+					int temp = score[j];
+					score[j]= score[j+1];
+					score[j+1]=temp;
+				}
+			}
+		}
+		for(int i=0; i<score.length;i++) {
+			System.out.println(score[i]+"\t");
+		}
 	}
 }
+
