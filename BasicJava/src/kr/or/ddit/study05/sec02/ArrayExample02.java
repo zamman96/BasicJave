@@ -175,7 +175,7 @@ public class ArrayExample02 {
 		int sum3 = 0;
 		for(int i=0; i<scores.length; i++) {
 				sum=0;
-				System.out.println(arr[i]+"의 성적");
+				System.out.println(arr[i]+"학생의 성적");
 				for(int j=0; j<scores[i].length;j++) {
 				System.out.println(sub[j]+" : "+scores[i][j]);
 				sum+=scores[i][j];
