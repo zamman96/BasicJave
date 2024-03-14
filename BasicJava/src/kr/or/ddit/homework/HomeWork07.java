@@ -48,6 +48,13 @@ public class HomeWork07 {
 				ch[j+1] =temp;
 			}
 		}
+		
+//		for(int i=0; i< 100000000; i++) {
+//			int r = new Random().nextInt(select.length());
+//			char temp = ch[0];
+//			ch[0]=ch[r];
+//			ch[r]=temp;
+//		}
 
 		
 		// 문제 값 저장
