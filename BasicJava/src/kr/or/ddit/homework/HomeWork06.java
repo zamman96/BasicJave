@@ -1,5 +1,6 @@
 package kr.or.ddit.homework;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class HomeWork06 {
@@ -11,7 +12,12 @@ public class HomeWork06 {
 //		obj.method2();
 //		obj.method3();
 //		obj.method4();
-		obj.method5();
+//		obj.method5();
+//		obj.method6();
+//		obj.method7();
+//		obj.method8();
+//		obj.method9();
+		obj.method10();
 	}
 
 	private void method1() {
@@ -110,7 +116,7 @@ public class HomeWork06 {
 		System.out.println(sum);
 	}
 	
-	private void method5() {
+	public void method5() {
 		/*
 		 *   키보드로 돈을 입력 받아 화폐단위별로 개수를 구하시오.
 		 *   ex ) 77550 -> 10000 7개 5000 1개 1000 2개 500 1개 50원 1개
@@ -126,4 +132,123 @@ public class HomeWork06 {
 		System.out.println(sum);
 	}
 
+	public void method6() {
+		//1차원 배열 건너 뛰기
+		int[][] arr = new int[3][];
+		
+		int[] stu1 = new int[4];
+		int[] stu2 = new int[5];
+		int[] stu3 = new int[4];
+		arr[0] = stu1;
+		arr[1] = stu2;
+		arr[2] = stu3;
+		System.out.println(Arrays.deepToString(arr));
+	}
+
+	public void method7() {
+		int[][] arr1 = new int[5][5];
+		// 1,2,3,4,5
+		// 6,7,8,9,10
+		// 11,12,13,14,15
+		// 16,17,18,19,20
+		// 21,22,23,24,25
+		
+		int a=1;
+		for(int i=0; i<arr1.length; i++) {
+			for(int j=0; j<arr1[i].length; j++) {
+				arr1[i][j]=a;
+				//arr1[i][j]= i*5 +j+1;
+				a++;
+			}
+		}
+		for(int i=0; i<arr1.length; i++) {
+			for(int j=0; j<arr1[i].length; j++) {
+				System.out.print(arr1[i][j]+"\t");
+			}
+			System.out.println();
+		}
+	}
+		
+	public void method8() {
+		int[][] arr2 = new int[5][5];
+		// 1,6,11,16,21
+		// 2,7,12,17,22
+		// 3,8,13,18,23
+		// 4,9,14,19,24
+		// 5,10,15,20,25
+		
+		int a=1;
+		for(int i=0; i<arr2.length; i++) {
+			for(int j=0; j<arr2[i].length; j++) {
+				arr2[j][i]=a;
+				a++;
+			}
+		}
+		for(int i=0; i<arr2.length; i++) {
+			for(int j=0; j<arr2[i].length; j++) {
+				System.out.print(arr2[i][j]+"\t");
+			}
+			System.out.println();
+		}	
+	}
+	public void method9() {
+		int[][] arr3 = new int[5][5];
+		// 1,2,3,4,5
+		// 10,9,8,7,6
+		// 11,12,13,14,15
+		// 20,19,18,17,16
+		// 21,22,23,24,25
+		for(int i=0; i<arr3.length; i++) {
+			for(int j=0; j<arr3[i].length; j++) {
+				if(i%2==0) {
+					arr3[i][j]=i*5+1+j;
+				} else {
+					arr3[i][4-j]=5*i+j+1;
+				}
+			}
+		}
+		for(int i=0; i<arr3.length; i++) {
+			for(int j=0; j<arr3[i].length; j++) {
+				System.out.print(arr3[i][j]+"\t");
+			}
+			System.out.println();
+		}	
+	}
+		
+	public void method10() {
+		int[][] arr3 = new int[5][5];
+		// 1,10,11,20,21
+		// 2,9,12,19,22
+		// 3,8,13,18,23
+		// 4,7,14,17,24
+		// 5,6,15,16,25
+		for(int i=0; i<arr3.length; i++) {
+			for(int j=0; j<arr3[i].length; j++) {
+				if(i%2==0) {
+					arr3[j][i]=i*5+1+j;
+				} else {
+					arr3[j][i]=5*i+5-j;
+				}
+			}
+		}
+		
+//		for(int i=0; i<arr3.length; i++) {
+//			for(int j=0; j<arr3[i].length; j++) {
+//				if(j%2==0) {
+//					arr3[i][j]=j*5+1+i;
+//				} else {
+//					arr3[i][j]=5*(j+1)-i;
+//				}
+//			}
+//		}
+		
+		
+		for(int i=0; i<arr3.length; i++) {
+			for(int j=0; j<arr3[i].length; j++) {
+				System.out.print(arr3[i][j]+"\t");
+			}
+			System.out.println();
+		}	
+	}
 }
+
