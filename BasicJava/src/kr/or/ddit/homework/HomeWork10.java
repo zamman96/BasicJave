@@ -23,69 +23,86 @@ public class HomeWork10 {
 		s1.kor = 80;
 		s1.eng = 73;
 		s1.math = 80;
-		s1.sum=s1.kor+s1.eng+s1.math;
-		s1.avg=s1.sum/3.0;
 		
 		s2.name = "김민구";
 		s2.kor = 90;
 		s2.eng = 85;
 		s2.math = 90;
-		s2.sum=s2.kor+s2.eng+s2.math;
-		s2.avg=s2.sum/3.0;
 		
 		s3.name = "조하연";
 		s3.kor = 90;
 		s3.eng = 70;
 		s3.math = 75;
-		s3.sum=s3.kor+s3.eng+s3.math;
-		s3.avg=s3.sum/3.0;
 		
 		s4.name = "이병훈";
 		s4.kor = 70;
 		s4.eng = 75;
 		s4.math = 70;
-		s4.sum=s4.kor+s4.eng+s4.math;
-		s4.avg=s4.sum/3.0;
 		
 		s5.name = "서성배";
 		s5.kor = 80;
 		s5.eng = 80;
 		s5.math = 70;
-		s5.sum=s5.kor+s5.eng+s5.math;
-		s5.avg=s5.sum/3.0;
 		
 		// 총점 평균 랭킹 구하기
-		int sum[] = new int[5];
-		for(int i=0; i<scores.length;i++) {
-			sum[i] = scores[i].sum;
+//		int sum[] = new int[5];
+//		for(int i=0; i<scores.length;i++) {
+//			sum[i] = scores[i].sum;
+//		}
+//		Arrays.sort(sum); // 70 76 76 78 88
+//				
+//		for(int i=0; i<scores.length;i++) {
+//			for(int j=0; j<sum.length;j++) {
+//				if(scores[i].sum==sum[j]) {
+//					scores[i].rank=5-j;
+//				}
+//			}
+//		}
+		
+		//총점 평균
+		for(Student stu : scores) {
+			stu.sum=stu.kor+stu.eng+stu.math;
+			stu.avg=stu.sum/3.0;
 		}
-		Arrays.sort(sum); // 70 76 76 78 88
-				
-		for(int i=0; i<scores.length;i++) {
-			for(int j=0; j<sum.length;j++) {
-				if(scores[i].sum==sum[j]) {
-					scores[i].rank=5-j;
-				}
+		
+		for(Student stu1 : scores) {
+			for(Student stu2 : scores) {
+				if(stu1.sum < stu2.sum) stu1.rank++;
 			}
 		}
 		
 		
+
+		
 		// 정렬 
-		Student[] temp = new Student[1];
+//		Student[] temp = new Student[1];
+//		for(int i=0;i<scores.length-1;i++) {
+//			for(int j=0;j<scores.length;j++) {
+//				if(scores[i].rank>scores[i+1].rank) {
+//					temp[0]=scores[i];
+//					scores[i]=scores[i+1];
+//					scores[i+1]=temp[0];
+//				}
+//			}
+//		}
 		
 		for(int i=0;i<scores.length-1;i++) {
-			for(int j=0;j<scores.length;j++) {
-				if(scores[i].rank>scores[i+1].rank) {
-					temp[0]=scores[i];
-					scores[i]=scores[i+1];
-					scores[i+1]=temp[0];
+			for(int j=0;j<scores.length-1;j++) {
+				if(scores[j].rank>scores[j+1].rank) {
+					Student stu =scores[j];
+					scores[j]=scores[j+1];
+					scores[j+1]=stu;
 				}
 			}
 		}
 		
 		//출력
-		for(int i=0; i<scores.length;i++) {
-			System.out.println(scores[i]);
+//		for(int i=0; i<scores.length;i++) {
+//			System.out.println(scores[i]);
+//		}
+		
+		for(Student stu : scores) {
+			System.out.println(stu);
 		}
 	}
 	
@@ -99,12 +116,16 @@ class Student{
 	int math;
 	int sum;
 	double avg;
-	int rank;
+	int rank=1;
 	@Override
 	public String toString() {
 		return "Student [이름 : " + name + ", 국어 점수 : " + kor + ", 영어 점수 : " + eng + ", 수학 점수 : " + math + ", 총점 : " + sum + ", 평균 : "
 				+ avg + ", 등수 : " + rank + "]";
 	}
+	
+	
+	
+	
 	
 	
 	
