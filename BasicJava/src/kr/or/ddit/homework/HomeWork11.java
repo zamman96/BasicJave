@@ -11,8 +11,6 @@ public class HomeWork11 {
 	public static void main(String[] args) {
 		HomeWork11 obj = new HomeWork11();
 		obj.process();
-//		Member2 member = new Member2("이름","지역","000210-4");
-//		System.out.println(member.age);
 	}
 	
 	public void process() {
@@ -24,24 +22,19 @@ public class HomeWork11 {
 			int sel = sc.nextInt();
 			Member mem = null;
 			if(sel==1) {
-				// 지역이 대전이라면  파라미터 2개인 생성자 호출
-				// 지역이 대전이 아니라면 파라미터 3개인 생성자 호출
 				System.out.println("지역을 입력해주세요.");
-				String inregion = sc.next();
-				if(inregion.equals("대전")) {
-					System.out.println("이름을 입력해주세요");
-					String inname = sc.next();
-					System.out.println("주민등록번호 생년월일과 두번째 앞 한글자를 입력해주세요.");
-					System.out.println("예시) 901001-1");
-					String inregdate = sc.next();
-					mem = new Member(inname,inregdate);
+				String region = sc.next();
+				System.out.println("이름을 입력해주세요");
+				String name = sc.next();
+				System.out.println("주민등록번호 생년월일과 두번째 앞 한글자를 입력해주세요.");
+				System.out.println("예시) 901001-1");
+				String regdate = sc.next();
+				// 지역이 대전이라면  파라미터 2개인 생성자 호출
+				if(region.equals("대전")) {
+					mem = new Member(name,regdate);
+				// 지역이 대전이 아니라면 파라미터 3개인 생성자 호출
 				} else {
-					System.out.println("이름을 입력해주세요");
-					String inname = sc.next();
-					System.out.println("주민등록번호 생년월일과 두번째 앞 한글자를 입력해주세요.");
-					System.out.println("예시) 901001-1");
-					String inregdate = sc.next();
-					mem = new Member(inname,inregion,inregdate);
+					mem = new Member(name,region,regdate);
 				}
 				memList[cur++] = mem;
 			}
@@ -79,14 +72,13 @@ class Member{
 			
 			// 끝자리가 1, 2 인경우 19
 			String year = "20";
-			if(tokens[1].equals("1")||tokens[1].equals("2")) {
-				year = "19";
-			}
-			
+			if(tokens[1].equals("1")||tokens[1].equals("2")) year = "19";
 			// 끝자리가 3, 4 인경우 20 추가 할것
+			if(tokens[1].equals("3")||tokens[1].equals("4")) year = "20";
+			
 			Date date2 = sdf.parse(year+tokens[0]);
 			
-			// 태어난지 난 시간(단위 ms). 
+			// 태어난지 난 시간(단위 ms)
 			long time = date1.getTime() - date2.getTime();
 			time= time/1000/60/60/24/365;
 			this.age=(int)time;
@@ -95,11 +87,11 @@ class Member{
 		}
 	}
 	
-	
 
 	// 이름 생년월일 생성자
 	public Member(String name, String regdate) {
 		this(name,"대전",regdate);
+		//위의 생성자 호출
 	}
 
 	
@@ -108,3 +100,4 @@ class Member{
 		return "Member [name=" + name + ", region=" + region + ", regdate=" + regdate + ", age=" + age + "]";
 	}
 }
+
