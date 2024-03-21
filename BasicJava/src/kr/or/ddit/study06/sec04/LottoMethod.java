@@ -10,11 +10,8 @@ public class LottoMethod {
 	}
 	// 실행하는 메소드
 	public void process() {
-//		int[][][] bundle = lottoBundle(14000);
-//		printBundle(bundle);
-		
-		int[][] paper=lottoPaper();
-		print(paper);
+		int[][][] bundle = lottoBundle(14000);
+		printBundle(bundle);
 	}
 	
 	// 로또 한 줄 생성 리턴메소드
@@ -97,15 +94,11 @@ public class LottoMethod {
 	// 다차원 배열의 로또 출력 메소드
 	// Arrays.deepToString(papar) 2차원 배열 출력
 	public void print(int[][] paper) {
-//		for(int i=0; i<paper.length;i++) {
-//			for(int j=0;j<paper[i].length;j++) {
-//				System.out.print(paper[i][j]+" ");
-//			}
-//			System.out.println();
-//		}
-		for(int i = 0; i<paper.length;i++) {
-			int[]lotto=paper[i];
-			arrayToString(lotto);
+		for(int i=0; i<paper.length;i++) {
+			for(int j=0;j<paper[i].length;j++) {
+				System.out.print(paper[i][j]+" ");
+			}
+			System.out.println();
 		}
 	}
 	// 종이 전체 출력
