@@ -135,10 +135,7 @@ public class HomeWork14 {
 		while (true) {
 			// 회원이없을떄 출력
 			if (cur == 0) {
-				System.out.println("┌──────────────────┐");
-				System.out.println("        오류");
-				System.out.println("   회원정보가 없습니다");
-				System.out.println("└──────────────────┘");
+				zero(cur);
 				break;
 			}
 			System.out.println("┌──────────────────┐");
@@ -159,7 +156,7 @@ public class HomeWork14 {
 				System.out.println("  처음 화면으로 돌아갑니다");
 				System.out.println("└──────────────────┘");
 				break;
-			}
+			} else if(input.equalsIgnoreCase("y")) {
 			for (int i = index; i < cur; i++) {
 				userList[i] = userList[i + 1];
 			}
@@ -168,6 +165,7 @@ public class HomeWork14 {
 			System.out.println("└──────────────────┘");
 			cur--;
 			break;
+			}
 		}
 	}
 
@@ -176,10 +174,7 @@ public class HomeWork14 {
 		while (true) {
 			// 회원이없을떄 출력
 			if (cur == 0) {
-				System.out.println("┌──────────────────┐");
-				System.out.println("        오류");
-				System.out.println("   회원정보가 없습니다");
-				System.out.println("└──────────────────┘");
+				zero(cur);
 				break;
 			}
 			System.out.println("┌──────────────────┐");
@@ -230,14 +225,21 @@ public class HomeWork14 {
 		}
 
 	}
-
+	// 회원 0일때 뜨는 경고창
+	public void zero(int cur) {
+		if(cur==0) {
+			System.out.println("┌──────────────────┐");
+			System.out.println("	오류");
+			System.out.println();
+			System.out.println("        회원정보가 없습니다");
+			System.out.println("└──────────────────┘");
+		}
+	}
+	
 	// 4.회원전체정보출력
 	public void print() {
 		if (cur == 0) {
-			System.out.println("┌──────────────────┐");
-			System.out.println("        오류");
-			System.out.println("   회원정보가 없습니다");
-			System.out.println("└──────────────────┘");
+			zero(cur);
 		} else {
 			for (int i = 0; i < cur; i++) {
 				System.out.println("=============================");
