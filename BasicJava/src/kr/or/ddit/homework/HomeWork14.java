@@ -23,17 +23,11 @@ public class HomeWork14 {
 			System.out.println("  5. 종료");
 			System.out.println("└────────────┘");
 			int sel = sc.nextInt();
-			if (sel == 1) {
-				join();
-			} else if (sel == 2) {
-				delete();
-			} else if (sel == 3) {
-				edit();
-			} else if (sel == 4) {
-				print();
-			} else if (sel == 5) {
-				break;
-			}
+			if (sel == 1) join();
+			if (sel == 2) remove();
+			if (sel == 3) update();
+			if (sel == 4) print();
+			if (sel == 5) break;			
 		}
 	}
 
@@ -125,13 +119,12 @@ public class HomeWork14 {
 		System.out.println("  회원가입이 완료되었습니다.");
 		System.out.println("└──────────────────┘");
 		// 내용 저장
-		userList[cur] = new User(id, pwd, name, age);
-		cur++;
+		userList[cur++] = new User(id, pwd, name, age);
 
 	}
 
 	// 2.회원탈퇴 --
-	public void delete() {
+	public void remove() {
 		while (true) {
 			// 회원이없을떄 출력
 			if (cur == 0) {
@@ -170,7 +163,7 @@ public class HomeWork14 {
 	}
 
 	// 3.정보수정
-	public void edit() {
+	public void update() {
 		while (true) {
 			// 회원이없을떄 출력
 			if (cur == 0) {
@@ -192,26 +185,24 @@ public class HomeWork14 {
 
 			// 아이디는 바꿀수 없으므로 유지
 			System.out.println("아이디 : " + userList[index].id);
-
-			// 비밀번호
-			System.out.println("바꿀 패스워드 : ");
+			System.out.println("-----------------------");
 			System.out.println("바꾸지않는다면 숫자 0을 입력해주세요");
+			// 비밀번호
+			System.out.print("바꿀 패스워드 : ");
 			String pwd2 = sc.next();
 			if (pwd2.equals("0")) {
 				pwd2 = userList[index].pwd;
 			}
 
 			// 이름
-			System.out.println("바꿀 이름 : ");
-			System.out.println("바꾸지않는다면 숫자 0을 입력해주세요");
+			System.out.print("바꿀 이름 : ");
 			String name = sc.next();
 			if (name.equals("0")) {
 				name = userList[index].name;
 			}
 
 			// 나이
-			System.out.println("바꿀 나이 : ");
-			System.out.println("바꾸지않는다면 숫자 0을 입력해주세요");
+			System.out.print("바꿀 나이 : ");
 			int age = sc.nextInt();
 			if (age == 0) {
 				age = userList[index].age;
@@ -221,11 +212,19 @@ public class HomeWork14 {
 
 			// 내용 저장
 			userList[index] = new User(userList[index].id, pwd2, name, age);
+			System.out.println("┌────────────────────┐");
+			System.out.println("       변경 내용");
+			System.out.println("아이디 : " + userList[index].id);
+			System.out.println("비밀번호 : " + userList[index].pwd);
+			System.out.println("이름 : " + userList[index].name);
+			System.out.println("나이 : " + userList[index].age);
+			System.out.println("└────────────────────┘");
+			
 			break;
 		}
 
 	}
-	// 회원 0일때 뜨는 경고창
+	// 회원 0명일때 뜨는 경고창
 	public void zero(int cur) {
 		if(cur==0) {
 			System.out.println("┌──────────────────┐");
