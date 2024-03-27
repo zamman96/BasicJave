@@ -1,4 +1,4 @@
-package kr.or.ddit.study07.sec02;
+package kr.or.ddit.study08;
 
 import java.util.Scanner;
 
@@ -8,23 +8,6 @@ public class UnitExample {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("1. 마린");
 		System.out.println("2. 뮤탈");
-		
-//		Unit unit = new Unit() {
-//
-//			@Override
-//			public void attack() {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//
-//			@Override
-//			public void move() {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//			
-//		};
-		
 		
 		Unit unit = null;
 		int sel = 1;
