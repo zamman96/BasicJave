@@ -2,9 +2,11 @@ package kr.or.ddit.homework;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 public class HomeWork18 {
 	public static void main(String[] args) {
@@ -21,6 +23,16 @@ public class HomeWork18 {
 		System.out.println();
 		System.out.println("각 부서별 월급 총합");
 		sum(list);
+		
+//		Map<String, Integer> deptSum = sum(list);
+//		Set<String> keySet = deptSum.keySet();
+//		Iterator<String> it = keySet.iterator();
+//		while(it.hasNext()) {
+//			String key = it.next();
+//			int val = deptSum.get(key);
+//			System.out.println(key+" : "+val);
+//		}
+		
 		System.out.println();
 		System.out.println("emp_no가 101인 사람 정보");
 		search(list);
@@ -43,16 +55,23 @@ public class HomeWork18 {
 	public Map<String,Integer> sum(List<Map> list) {
 		Map<String,Integer> sum = new HashMap();
 		for (Map map : list) {
+//			int salary = (int) map.get("salary");
 			if(sum.containsKey(map.get("dept"))) {
+//				salary+=sum.get("dept");
+//				sum.put((String) map.get("dept"), salary);
 				int remove = sum.remove(map.get("dept"));
 				sum.put((String) map.get("dept"),(int) (map.get("salary"))+remove);
+				
 			} else {
 				sum.put((String) map.get("dept"),(int) (map.get("salary")));
 			}
 		}
-		for(Entry<String, Integer> entrySet : sum.entrySet()) {
-			System.out.println(entrySet.getKey()+ "\t"+entrySet.getValue());
-		}
+//		for(Entry<String, Integer> entrySet : sum.entrySet()) {
+//			System.out.println(entrySet.getKey()+ "\t"+entrySet.getValue());
+//		}
+		
+//		System.out.println(sum);
+	
 		return sum;
 	}
 
